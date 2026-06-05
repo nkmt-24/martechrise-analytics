@@ -33,7 +33,7 @@ const NewsletterSchema = new Schema<INewsletter>(
 );
 
 // Index for fast lookup
-NewsletterSchema.index({ email: 1 });
+// Note: email index is already created by unique: true constraint
 NewsletterSchema.index({ status: 1 });
 NewsletterSchema.index({ subscribedAt: -1 });
 

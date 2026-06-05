@@ -8,7 +8,12 @@ const nextConfig = {
     experimental: {
         optimizeCss: true,
         optimizePackageImports: ['lucide-react', 'framer-motion', 'date-fns'],
+        // Reduce workers for static generation to prevent memory issues
+        staticGenerationWorkers: 2,
     },
+
+    // Increase timeout for static generation
+    staticPageGenerationTimeout: 120,
 
     images: {
         formats: ['image/webp', 'image/avif'],

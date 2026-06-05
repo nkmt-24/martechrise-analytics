@@ -74,9 +74,8 @@ export function trackContactFormSubmit(params?: {
   email?: boolean;
 }): void {
   trackEvent(GA4_KEY_EVENTS.CONTACT_FORM_SUBMIT, {
-    form_name: params?.form_name || 'Contact Form',
-    form_id: params?.form_id,
     ...params,
+    form_name: params?.form_name || 'Contact Form',
   });
 }
 
@@ -89,9 +88,8 @@ export function trackAuditRequestSubmit(params?: {
   service_type?: string;
 }): void {
   trackEvent(GA4_KEY_EVENTS.AUDIT_REQUEST_SUBMIT, {
-    form_name: params?.form_name || 'Audit Request',
-    form_id: params?.form_id,
     ...params,
+    form_name: params?.form_name || 'Audit Request',
   });
 }
 
@@ -104,9 +102,8 @@ export function trackQuoteRequestSubmit(params?: {
   service_type?: string;
 }): void {
   trackEvent(GA4_KEY_EVENTS.QUOTE_REQUEST_SUBMIT, {
-    form_name: params?.form_name || 'Quote Request',
-    form_id: params?.form_id,
     ...params,
+    form_name: params?.form_name || 'Quote Request',
   });
 }
 
@@ -118,11 +115,7 @@ export function trackServiceInquiry(params?: {
   service_id?: string;
   inquiry_type?: string;
 }): void {
-  trackEvent(GA4_KEY_EVENTS.SERVICE_INQUIRY, {
-    service_name: params?.service_name,
-    service_id: params?.service_id,
-    ...params,
-  });
+  trackEvent(GA4_KEY_EVENTS.SERVICE_INQUIRY, params);
 }
 
 /**
@@ -134,8 +127,8 @@ export function trackPhoneCall(params?: {
   page_section?: string;
 }): void {
   trackEvent(GA4_KEY_EVENTS.PHONE_CALL, {
-    button_text: params?.button_text || 'Call Now',
     ...params,
+    button_text: params?.button_text || 'Call Now',
   });
 }
 
@@ -148,9 +141,9 @@ export function trackWhatsAppClick(params?: {
   button_location?: string;
 }): void {
   trackEvent(GA4_KEY_EVENTS.WHATSAPP_CLICK, {
+    ...params,
     button_text: 'WhatsApp',
     button_location: params?.button_location,
-    ...params,
   });
 }
 
@@ -163,8 +156,8 @@ export function trackEmailClick(params?: {
   button_text?: string;
 }): void {
   trackEvent(GA4_KEY_EVENTS.EMAIL_CLICK, {
-    button_text: params?.button_text || 'Email',
     ...params,
+    button_text: params?.button_text || 'Email',
   });
 }
 
@@ -194,9 +187,10 @@ export function trackCTAClick(params: {
   page_section?: string;
   button_id?: string;
 }): void {
+  const { cta_text, ...restParams } = params;
   trackEvent(GA4_ENGAGEMENT_EVENTS.CTA_CLICK, {
-    button_text: params.cta_text,
-    ...params,
+    ...restParams,
+    button_text: cta_text,
   });
 }
 
@@ -208,9 +202,10 @@ export function trackNavigationClick(params: {
   menu_location?: string;
   destination?: string;
 }): void {
+  const { menu_item, ...restParams } = params;
   trackEvent(GA4_ENGAGEMENT_EVENTS.NAVIGATION_CLICK, {
-    link_text: params.menu_item,
-    ...params,
+    ...restParams,
+    link_text: menu_item,
   });
 }
 
@@ -234,9 +229,10 @@ export function trackInternalLinkClick(params: {
   link_text: string;
   link_path: string;
 }): void {
+  const { link_path, ...restParams } = params;
   trackEvent(GA4_ENGAGEMENT_EVENTS.INTERNAL_LINK_CLICK, {
-    link_url: params.link_path,
-    ...params,
+    ...restParams,
+    link_url: link_path,
   });
 }
 
@@ -258,10 +254,7 @@ export function trackScrollDepth(params: {
   scroll_percentage: number;
   page_title?: string;
 }): void {
-  trackEvent(GA4_ENGAGEMENT_EVENTS.SCROLL_DEPTH, {
-    scroll_percentage: params.scroll_percentage,
-    ...params,
-  });
+  trackEvent(GA4_ENGAGEMENT_EVENTS.SCROLL_DEPTH, params);
 }
 
 /**
@@ -271,9 +264,10 @@ export function trackTimeOnPageMilestone(params: {
   time_seconds: number;
   page_title?: string;
 }): void {
+  const { time_seconds, ...restParams } = params;
   trackEvent(GA4_ENGAGEMENT_EVENTS.TIME_ON_PAGE, {
-    engagement_time_msec: params.time_seconds * 1000,
-    ...params,
+    ...restParams,
+    engagement_time_msec: time_seconds * 1000,
   });
 }
 
@@ -309,9 +303,10 @@ export function trackFAQExpand(params: {
   faq_item_id?: string;
   section?: string;
 }): void {
+  const { faq_question, ...restParams } = params;
   trackEvent(GA4_ENGAGEMENT_EVENTS.FAQ_EXPAND, {
-    element_text: params.faq_question,
-    ...params,
+    ...restParams,
+    element_text: faq_question,
   });
 }
 
@@ -417,9 +412,9 @@ export function trackBrochureDownload(params?: {
   file_type?: string;
 }): void {
   trackEvent(GA4_KEY_EVENTS.CONSULTATION_REQUEST, {
-    file_type: 'PDF',
-    file_name: params?.file_name || 'brochure.pdf',
     ...params,
+    file_type: params?.file_type || 'PDF',
+    file_name: params?.file_name || 'brochure.pdf',
   });
 }
 
@@ -443,9 +438,10 @@ export function trackResourceDownload(params: {
   resource_type?: string;
   resource_id?: string;
 }): void {
+  const { resource_name, ...restParams } = params;
   trackEvent(GA4_INFO_EVENTS.RESOURCE_DOWNLOAD, {
-    file_name: params.resource_name,
-    ...params,
+    ...restParams,
+    file_name: resource_name,
   });
 }
 
