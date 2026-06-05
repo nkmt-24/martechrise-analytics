@@ -8,6 +8,7 @@ const envSchema = z.object({
     CLOUDINARY_API_KEY: z.string().min(1),
     CLOUDINARY_API_SECRET: z.string().min(1),
     NEXT_PUBLIC_APP_URL: z.string().url().optional().default('http://localhost:3000'),
+    NEXT_PUBLIC_GA_MEASUREMENT_ID: z.string().optional(),
     NODE_ENV: z.enum(['development', 'production', 'test']).default('development'),
     UPSTASH_REDIS_REST_URL: z.string().url().optional(),
     UPSTASH_REDIS_REST_TOKEN: z.string().optional(),

@@ -7,6 +7,7 @@ import Footer from '@/components/layout/Footer';
 import FloatingContact from '@/components/layout/FloatingContact';
 import NextTopLoader from 'nextjs-toploader';
 import AuthProvider from '@/components/providers/AuthProvider';
+import GoogleAnalytics from '@/components/analytics/GoogleAnalytics';
 import { siteConfig } from '@/config/site';
 
 // Fonts
@@ -33,6 +34,9 @@ export default function RootLayout({
 }) {
     return (
         <html lang="en" data-scroll-behavior="smooth" className={`${inter.variable} ${instrumentSerif.variable} ${GeistSans.variable} ${caveat.variable} scroll-smooth`}>
+            <head>
+                <GoogleAnalytics />
+            </head>
             <body>
                 <AuthProvider>
                     <NextTopLoader color="#7c3aed" showSpinner={false} />

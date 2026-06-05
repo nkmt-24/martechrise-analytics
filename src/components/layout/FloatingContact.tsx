@@ -1,6 +1,25 @@
+'use client';
+
 import React from 'react';
+import { useAnalytics } from '@/lib/analytics';
 
 export default function FloatingContact() {
+  const { trackWhatsAppClick, trackPhoneCall } = useAnalytics();
+
+  const handleWhatsAppClick = () => {
+    trackWhatsAppClick({
+      button_location: 'floating_widget',
+      message: 'I would like to inquire about your services',
+    });
+  };
+
+  const handlePhoneClick = () => {
+    trackPhoneCall({
+      button_text: 'Call Now',
+      page_section: 'floating_widget',
+    });
+  };
+
   return (
     <div className="fixed right-6 bottom-24 lg:bottom-6 z-50 flex flex-col gap-4 items-end">
       {/* WhatsApp Button */}
@@ -8,6 +27,7 @@ export default function FloatingContact() {
         href="https://wa.me/+916382915027"
         target="_blank"
         rel="noopener noreferrer"
+        onClick={handleWhatsAppClick}
         className="w-14 h-14 bg-[#25D366] rounded-full shadow-[0_4px_14px_rgba(37,211,102,0.4)] flex items-center justify-center text-white hover:scale-110 active:scale-95 transition-all duration-300"
         aria-label="Contact on WhatsApp"
         title="Chat on WhatsApp"
@@ -20,6 +40,7 @@ export default function FloatingContact() {
       {/* Call Button */}
       <a
         href="tel:+916382915027"
+        onClick={handlePhoneClick}
         className="w-14 h-14 bg-indigo-600 rounded-full shadow-[0_4px_14px_rgba(79,70,229,0.4)] flex items-center justify-center text-white hover:scale-110 active:scale-95 transition-all duration-300"
         aria-label="Call Us"
         title="Call Us"
