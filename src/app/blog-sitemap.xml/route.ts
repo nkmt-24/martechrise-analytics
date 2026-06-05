@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import Blog from '@/models/Blog';
 import dbConnect from '@/lib/db';
+import { getAppUrl } from '@/lib/appUrl';
 
 export async function GET() {
   await dbConnect();
@@ -9,7 +10,7 @@ export async function GET() {
     .select('slug workflow.publishedAt workflow.lastModifiedAt')
     .lean();
 
-  const baseUrl = process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000';
+  const baseUrl = getAppUrl();
 
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">

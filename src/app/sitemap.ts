@@ -1,11 +1,10 @@
 import { MetadataRoute } from 'next';
 import { getProjects } from '@/services/project.service';
 import { getAllBlogSlugs } from '@/services/blogService';
-import { env } from '@/config/env';
-import { siteConfig } from '@/config/site';
+import { getAppUrl } from '@/lib/appUrl';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = env.NEXT_PUBLIC_APP_URL || siteConfig.url;
+  const baseUrl = getAppUrl();
 
   const projectsResponse = await getProjects({ status: 'published', limit: 1000 });
   const projects = projectsResponse.data;

@@ -1,7 +1,8 @@
 import { Metadata } from 'next';
 import { siteConfig } from '@/config/site';
+import { getAppUrl } from '@/lib/appUrl';
 
-const defaultUrl = process.env.NEXT_PUBLIC_APP_URL || siteConfig.url;
+const defaultUrl = getAppUrl();
 
 interface SEOProps {
   title: string;

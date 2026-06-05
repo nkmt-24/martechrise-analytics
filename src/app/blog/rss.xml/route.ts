@@ -1,10 +1,11 @@
 import { NextResponse } from 'next/server';
 import { getBlogs } from '@/services/blogService';
 import { siteConfig } from '@/config/site';
+import { getAppUrl } from '@/lib/appUrl';
 
 export async function GET() {
   const { data: blogs } = await getBlogs({ page: 1, limit: 50, status: 'published' });
-  const baseUrl = process.env.NEXT_PUBLIC_APP_URL || siteConfig.url;
+  const baseUrl = getAppUrl();
 
   const rss = `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:media="http://search.yahoo.com/mrss/">

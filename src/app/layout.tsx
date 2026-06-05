@@ -9,6 +9,7 @@ import NextTopLoader from 'nextjs-toploader';
 import AuthProvider from '@/components/providers/AuthProvider';
 import GoogleAnalytics from '@/components/analytics/GoogleAnalytics';
 import { siteConfig } from '@/config/site';
+import { getAppUrl } from '@/lib/appUrl';
 
 // Fonts
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
@@ -21,6 +22,7 @@ export const metadata: Metadata = {
         template: siteConfig.seo.titleTemplate,
     },
     description: siteConfig.seo.defaultDescription,
+    metadataBase: new URL(getAppUrl()),
     icons: {
         icon: '/icon.png',
         apple: '/icon.png',

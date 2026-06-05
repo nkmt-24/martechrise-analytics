@@ -17,8 +17,10 @@ export function formatDate(date: Date | string): string {
     });
 }
 
+import { getAppUrl } from '@/lib/appUrl';
+
 export function absoluteUrl(path: string) {
-    return `${process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000'}${path}`;
+    return `${getAppUrl()}${path}`;
 }
 
 export function slugify(text: string): string {

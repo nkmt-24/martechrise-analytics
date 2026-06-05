@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import dbConnect from '@/lib/dbConnect';
 import Project from '@/models/Project';
+import { getAppUrl } from '@/lib/appUrl';
 
 export async function GET() {
   try {
@@ -13,7 +14,7 @@ export async function GET() {
       .select('slug updatedAt')
       .lean();
 
-    const baseUrl = process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000';
+    const baseUrl = getAppUrl();
 
     const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"

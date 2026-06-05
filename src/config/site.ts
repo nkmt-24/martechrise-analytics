@@ -17,7 +17,7 @@ export const siteConfig = {
     'We fix broken tracking, eliminate data loss, and build clean analytics pipelines ' +
     'so marketing teams can scale with confidence. GA4, Adobe Analytics, ' +
     'server-side tracking, and Meta CAPI specialists.',
-  url: process.env.NEXT_PUBLIC_APP_URL || 'https://martechrise.ai',
+  url: process.env.NEXT_PUBLIC_APP_URL || 'https://www.martechrise.ai',
 
   // ==================== CONTACT ====================
   email: process.env.NEXT_PUBLIC_CONTACT_EMAIL || 'hello@martechrise.ai',

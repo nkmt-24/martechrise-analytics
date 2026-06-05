@@ -1,9 +1,8 @@
 import { MetadataRoute } from 'next';
-import { env } from '@/config/env';
-import { siteConfig } from '@/config/site';
+import { getAppUrl } from '@/lib/appUrl';
 
 export default function robots(): MetadataRoute.Robots {
-  const baseUrl = env.NEXT_PUBLIC_APP_URL || siteConfig.url;
+  const baseUrl = getAppUrl();
   return {
     rules: [
       {
