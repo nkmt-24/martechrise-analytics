@@ -1,10 +1,12 @@
 'use client';
 
 import React from 'react';
+import { usePathname } from 'next/navigation';
 import { useAnalytics } from '@/lib/analytics';
 
 export default function FloatingContact() {
   const { trackWhatsAppClick, trackPhoneCall } = useAnalytics();
+  const pathname = usePathname();
 
   const handleWhatsAppClick = () => {
     trackWhatsAppClick({
@@ -19,6 +21,8 @@ export default function FloatingContact() {
       page_section: 'floating_widget',
     });
   };
+
+  if (pathname.startsWith('/admin')) return null;
 
   return (
     <div className="fixed right-6 bottom-24 lg:bottom-6 z-50 flex flex-col gap-4 items-end">

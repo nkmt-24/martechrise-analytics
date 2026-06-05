@@ -37,6 +37,10 @@ export default function GoogleAnalytics() {
       return;
     }
 
+    if (pathname.startsWith('/admin')) {
+      return;
+    }
+
     // Reset tracking on route change
     resetScrollTracking();
     resetTimeTracking();
@@ -52,7 +56,7 @@ export default function GoogleAnalytics() {
     initializeTimeTracking();
   }, [pathname]);
 
-  if (!GA_MEASUREMENT_ID) {
+  if (!GA_MEASUREMENT_ID || pathname.startsWith('/admin')) {
     return null;
   }
 

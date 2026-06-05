@@ -3,12 +3,14 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { usePathname } from 'next/navigation';
 import { Phone, MapPin, Mail, ArrowRight, Check, Send } from 'lucide-react';
 
 const Footer: React.FC = () => {
     const [email, setEmail] = useState('');
     const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
     const [message, setMessage] = useState('');
+    const pathname = usePathname();
 
     const handleNewsletterSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
@@ -49,6 +51,7 @@ const Footer: React.FC = () => {
         }
     };
 
+    if (pathname.startsWith('/admin')) return null;
 
     return (
         <footer className="bg-slate-900 text-white">
