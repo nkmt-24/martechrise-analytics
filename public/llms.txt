@@ -1,0 +1,23 @@
+# MarTechRise.ai - Technical Digital Analytics Architects
+
+Technical analytics architects for the modern enterprise. We build clean data pipelines that drive growth.
+
+## Core Services
+- **Digital Analytics Implementation**: GA4, Adobe Analytics, GTM Server-Side, and Tag Management.
+- **Data Strategy & Governance**: Frameworks for data accuracy, privacy compliance (GDPR/CCPA/Consent Mode V2).
+- **BI & Visualization**: Looker Studio, Tableau, and Power BI dashboards.
+- **Conversion Optimization**: A/B testing, funnel optimization, and user journey analysis.
+
+## Key Capabilities
+- Server-Side Tagging
+- Custom Data Layer Architecture
+- PII Redaction Systems
+- HIPAA Compliant Measurement
+- Real-time ROI Tracking
+
+## Contact
+- Website: https://martechrise.ai
+- Contact Page: https://martechrise.ai/contact
+- Direct Line: +91-6382915027
+- Email: hello@martechrise.ai
+- Location: Chennai, India (Serving US & Global Enterprise)

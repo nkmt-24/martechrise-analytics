@@ -1,0 +1,18 @@
+{
+  "model": "claude-sonnet-4-5",
+  "context_files": [
+    ".claude/CLAUDE.md",
+    ".claude/context/architecture.md",
+    ".claude/context/stack.md",
+    ".claude/context/constraints.md",
+    ".claude/context/performance.md",
+    ".claude/context/seo.md",
+    ".claude/context/design-system.md"
+  ],
+  "skills_dir": ".claude/skills",
+  "memory_dir": ".claude/memory",
+  "auto_compact": true,
+  "include_on_start": [
+    ".claude/CLAUDE.md"
+  ]
+}
