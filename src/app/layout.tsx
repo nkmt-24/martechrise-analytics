@@ -23,6 +23,29 @@ export const metadata: Metadata = {
     },
     description: siteConfig.seo.defaultDescription,
     metadataBase: new URL(getAppUrl()),
+    openGraph: {
+        title: siteConfig.seo.defaultTitle,
+        description: siteConfig.seo.defaultDescription,
+        url: '/',
+        siteName: siteConfig.name,
+        images: [
+            {
+                url: siteConfig.seo.defaultImage,
+                width: 1200,
+                height: 630,
+                alt: siteConfig.seo.defaultTitle,
+            },
+        ],
+        type: 'website',
+    },
+    twitter: {
+        card: 'summary_large_image',
+        title: siteConfig.seo.defaultTitle,
+        description: siteConfig.seo.defaultDescription,
+        site: siteConfig.seo.twitterHandle,
+        creator: siteConfig.seo.twitterHandle,
+        images: [siteConfig.seo.defaultImage],
+    },
     icons: {
         icon: '/icon.png',
         apple: '/icon.png',

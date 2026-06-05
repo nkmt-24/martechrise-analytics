@@ -8,6 +8,7 @@ export const metadata = generateSEO({
     title: 'Case Studies',
     description: 'Analytics tracking projects and case studies — server-side tracking, GA4 implementation, and data pipeline work delivered for enterprise clients.',
     keywords: ['analytics case studies', 'tracking implementation', 'GA4', 'server-side tracking', 'MarTechRise'],
+    url: '/case-studies',
 });
 
 export const revalidate = 3600; // 1 hour

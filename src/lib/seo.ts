@@ -19,7 +19,7 @@ export function generateSEO({
   title,
   description,
   url = defaultUrl,
-  image = '/og-default.png',
+  image = siteConfig.seo.defaultImage,
   keywords = [],
   type = 'website',
   publishedTime,
@@ -41,11 +41,11 @@ export function generateSEO({
     openGraph: {
       title: fullTitle,
       description,
-      url,
+      url: canonicalUrl,
       siteName,
       images: [
         {
-          url: image.startsWith('http') ? image : `${defaultUrl}${image}`,
+          url: image.startsWith('http') ? image : `${defaultUrl}${image.startsWith('/') ? image : `/${image}`}`,
           width: 1200,
           height: 630,
           alt: title,
@@ -59,8 +59,9 @@ export function generateSEO({
       card: 'summary_large_image',
       title: fullTitle,
       description,
+      site: siteConfig.seo.twitterHandle,
       creator: siteConfig.seo.twitterHandle,
-      images: [image.startsWith('http') ? image : `${defaultUrl}${image}`],
+      images: [image.startsWith('http') ? image : `${defaultUrl}${image.startsWith('/') ? image : `/${image}`}`],
     },
     robots: {
       index: true,
